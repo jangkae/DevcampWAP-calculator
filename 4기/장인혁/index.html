@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <title>과제01</title>
+  </head>
+  <body>
+
+    <input type="number" id="num1" />
+    <select id="operator">
+      <option value="+" selected>+</option>
+      <option value="-">-</option>
+    </select>
+    <input type="number" id="num2">
+    <button id="btn">계산</button>
+    <span>=</span>
+    <span id="result"></span>
+
+    <script>
+      var num1 = document.getElementById("num1");
+      var num2 = document.getElementById("num2");
+      var oper = document.getElementById("operator");
+      var btn = document.getElementById("btn");
+      var resultField = document.getElementById("result");
+
+      num1.onkeydown = onKey;
+      num2.onkeydown = onKey;
+      btn.onclick = calc;
+
+      function onKey(e){
+        if (e.keyCode == 13) calc();
+      }
+
+      function calc(){
+        var n1 = Number(num1.value);
+        var n2 = Number(num2.value);
+        var o = oper.value;
+        var result;
+        if (o == '+') result = n1 + n2;
+        else if (o == '-') result = n1 - n2;
+        resultField.innerText = n1 + ' ' + o + ' ' + n2 + ' = ' + result;
+      }
+    </script>
+
+  </body>
+</html>
